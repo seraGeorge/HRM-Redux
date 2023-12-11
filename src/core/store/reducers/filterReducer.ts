@@ -1,4 +1,4 @@
-import {TableProps } from "../../interfaces/interface";
+import {TableProps } from "../../interfaces/interface.ts";
 import * as actionTypes from "../actionTypes.ts";
 
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
 };
 
 function filterReducer(
-    state: any = initialState,
+    state = initialState,
     action: {
         type: string;
         payload: TableProps;

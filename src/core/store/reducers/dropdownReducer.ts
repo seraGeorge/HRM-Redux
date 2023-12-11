@@ -1,4 +1,4 @@
-import {  SelectOptionProps } from "../../interfaces/interface";
+import {  SelectOptionProps } from "../../interfaces/interface.ts";
 import * as actionTypes from "../actionTypes.ts";
 
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
 };
 
 function dropdownReducer(
-    state: any = initialState,
+    state= initialState,
     action: {
         type: string;
         payload: SelectOptionProps[] | boolean;
@@ -20,8 +20,8 @@ function dropdownReducer(
         
         case actionTypes.SET_DEPARTMENTS:
             return { ...state, departments: action.payload };
-        case actionTypes.SET_DESIGNATIONS:
-            return { ...state, designations: action.payload };
+        case actionTypes.SET_ROLES:
+            return { ...state, roles: action.payload };
         case actionTypes.SET_EMP_MODES:
             return { ...state, empModes: action.payload };
         case actionTypes.SET_SKILLS:

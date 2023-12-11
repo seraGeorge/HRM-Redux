@@ -1,4 +1,4 @@
-import { Employee, } from "../../interfaces/interface";
+import { Employee, } from "../../interfaces/interface.ts";
 import * as actionTypes from "../actionTypes.ts";
 
 const initialState = {
