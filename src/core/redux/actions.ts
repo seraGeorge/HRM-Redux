@@ -14,13 +14,9 @@ export const setLoading = (loading: boolean) => ({
   type: actionTypes.SET_LOADING,
   payload: loading,
 });
-export const setDataEmployees = (dataEmployees: Employee[]) => ({
-  type: actionTypes.SET_DATA_EMPLOYEES,
-  payload: dataEmployees,
-});
-export const setEmployees = (employees: Employee[]) => ({
+export const setEmployees = (employeesData: {employees:Employee[], count: number}) => ({
   type: actionTypes.SET_EMPLOYEES,
-  payload: employees,
+  payload: employeesData,
 });
 export const setDesignations = (designations: SelectOptionProps[]) => ({
   type: actionTypes.SET_DESIGNATIONS,
@@ -42,6 +38,7 @@ export const setTableProps = (tableProps: TableProps) => ({
   type: actionTypes.SET_TABLE_PROPS,
   payload: tableProps,
 });
+
 export const fetchEmployeeData = () => {
   return async function (dispatch: (arg0: {
     type: string;
@@ -51,7 +48,6 @@ export const fetchEmployeeData = () => {
       const response = await getData("/.json");
       const dataResponse: Data = response.data;
       if (dataResponse) {
-        dispatch(setDataEmployees(Object.values(dataResponse.employees)));
         dispatch(setEmployees(Object.values(dataResponse.employees)));
         return dataResponse; // Resolve the promise with the data
       } else {
