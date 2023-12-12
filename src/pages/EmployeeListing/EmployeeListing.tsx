@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ActionsBar from "./SearchAndFilter/ActionsBar.tsx";
 import MainHeading from "./MainHeading/MainHeading.tsx";
 import { useEffect, useState } from "react";
+import EmployeeCards from "./EmployeeCards/EmployeeCards.tsx";
 
 function EmployeeListing() {
   const [deleteModal, setDeleteModal] = useState(false); // determines whether the modal is open or close
@@ -39,7 +40,13 @@ function EmployeeListing() {
         deleteModal={deleteModal}
         changeDltModalOpenStatus={changeDltModalOpenStatus}
       />
-      {deleteModal && <div className="overlay" onClick={()=>setDeleteModal(false)}></div>}
+      <EmployeeCards
+        deleteModal={deleteModal}
+        changeDltModalOpenStatus={changeDltModalOpenStatus}
+      />
+      {deleteModal && (
+        <div className="overlay" onClick={() => setDeleteModal(false)}></div>
+      )}
     </>
   );
 }
