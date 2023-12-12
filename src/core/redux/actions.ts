@@ -47,6 +47,7 @@ export const fetchEmployeeData = () => {
     try {
       const response = await getData("/.json");
       const dataResponse: Data = response.data;
+      console.log(dataResponse)
       if (dataResponse) {
         dispatch(setEmployees(Object.values(dataResponse.employees)));
         return dataResponse; // Resolve the promise with the data
